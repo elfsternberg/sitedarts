@@ -1,0 +1,7 @@
+*.pyc
+*.pyo
+*#
+.#*
+*~
+frontend/logs/
+spiral.db
