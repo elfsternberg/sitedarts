@@ -22,12 +22,12 @@
                 var prop = $(window).height();
                 var doch = $(document).height();
                 
-                names.each(function() {
+                names.each(function(dex) {
                     var n = $(this).attr('name')
                     var d = $(this).offset().top;
                     var a = $("li." + options.markitem + ' a[href="#' + n + '"]');
                     var p = a.parent();
-                    p.animate({top: prop * (d / doch)});
+                    p.animate({top: prop * (d / doch) - dex * 7});
                 });
             }
             
@@ -45,9 +45,13 @@
                         event.preventDefault();
                         var target = $(event.target).attr('href').replace('#', '')
                         var targetOffset = $('a[name="' + target  + '"]').offset().top;
-                        $(document).animate({scrollTop: targetOffset}, 400, function() {
-                            location.hash = target;
-                        });                   
+                        $('html body').animate({scrollTop: targetOffset}, 
+                                               {duration: 800, 
+                                                easing: options.easing,
+                                                complete: function() {
+                                                    location.hash = target;
+                                                }
+                                               });
                     });
                 });
             }
@@ -59,12 +63,7 @@
 	$.fn.siteDarts.defaults = {
         marklist: 'marklist',
         markitem: 'marklistitem',
-		css: {
-			// default styling
-			ul:     { position: "fixed", top: 0, right: "-30px", height: "100%", "zindex": 99},
-            li:     { position: "absolute", top: 0, right: 0, overflow: "hidden", color: "white", cursor: "pointer"},
-            a:      { width: "29px", height: "24px", background: "transparent no-repeat" },
-        }
+        easing: 'easeOutQuint'
     };
 
 })(jQuery);
