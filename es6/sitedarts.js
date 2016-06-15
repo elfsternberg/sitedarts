@@ -10,9 +10,8 @@
  * Requires: jQuery v1.3.2 or later
  */
  
-
 ;(function($) {
-	$.fn.siteDarts = (options) => {
+	$.fn.siteDarts = function(options) {
 		return this.each(() => {
             options = $.extend(true, {}, $.fn.siteDarts.defaults, options);
             var names = $('a[name]');
@@ -21,7 +20,7 @@
                 var prop = $(window).height();
                 var doch = $(document).height();
                 
-                names.each((dex) => {
+                names.each(function(dex) {
                     var n = $(this).attr('name');
                     var d = $(this).offset().top;
                     $("li." + options.markitem + ' a[href="#' + n + '"]')
@@ -35,7 +34,7 @@
                     $('#' + options.marklist).remove();
                 }
                 var l = $('<ul id="' + options.marklist + '"></ul>').appendTo('body');
-                names.each(() => {
+                names.each(function() {
                     var o = $('<li class="' + options.markitem + '"><a href="#' + 
                               $(this).attr('name') + '">' + $(this).text() + '</a></li>').appendTo(l);
                     
