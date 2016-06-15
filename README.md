@@ -12,7 +12,9 @@ develop code for e-book readers.
 
 ## Installation
 
-Sitedarts uses jquery (1.3.2 or better required) and jquery.easing.
+Sitedarts uses JQuery and JQueryUI for easing.  The examples run off the
+JQuery CDN and use JQuery 2.2 and jQueryUI 1.11 as of this check-in, but
+the code is relatively unchanged since the days of jQuery 1.3.
 
 ## Copyright 
 
