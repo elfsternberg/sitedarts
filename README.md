@@ -13,15 +13,13 @@ develop code for e-book readers.
 ## Installation
 
 Sitedarts uses jquery (1.3.2 or better required) and jquery.easing.
-Both are provided in this download.  It's just Javascript, otherwise.
-Use as directed.
 
 ## Copyright 
 
-Sitedarts is copyright (c) 2011 Elf M. Sternberg.  Included libraries
-are covered by their respective copyright holders, and are used with
-permission of the licenses included.  See the MIT-LICENSE file for
-the license on sitedarts.js itself.
+Sitedarts is copyright (c) 2011, 2016 Elf M. Sternberg.  Included
+libraries are covered by their respective copyright holders, and are
+used with permission of the licenses included.  See the MIT-LICENSE file
+for the license on sitedarts.js itself.
 
 ## To Do
 
@@ -34,17 +32,17 @@ Provide themes for dart types (metal, glass, plain, colorful, drab).
 Fix the arbitrariness of the layout: ensure that the bottom of the
 bottom dart, and the top of the top dart, are within the viewport.
 
-Allow the darts to be on the left, or even across the top and bottom
-of the viewport.
+Allow the darts to be on the left, or even across the top and bottom of
+the viewport.
 
 Guarantee easing to the target even when the target mark is well
 within the viewport at the bottom of the document.  
 
 Set a highlight class on the dart corresponding to the anchor the user
 is "within."  This is a nebulous concept.  If two or more anchors are
-visible on the screen, keep the lower one highlighted if it was the
-last one chosen.  (cf. Eugene Jarvis' "The way a program looks smart
-is it doesn't do anything stupid.")
+visible on the screen, keep the lower one highlighted if it was the last
+one chosen.  (cf. Eugene Jarvis' "The way a program looks smart is it
+doesn't do anything stupid.")
 
 Allow sitedarts to work within an arbitrary container pair, rather
 than $(window) and $(document).  

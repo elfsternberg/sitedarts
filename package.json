@@ -1,0 +1,33 @@
+{
+  "name": "Sitedarts",
+  "version": "0.9.0",
+  "description": "A jQUery module to assist with navigating large documents",
+  "main": "sitedarts.js",
+  "directories": {
+    "example": "examples"
+  },
+  "devDependencies": {
+    "babel-cli": "~6.10.1",
+    "babel-preset-es2015": "~6.9.0",
+    "bower": "~1.7.9",
+    "http-server": "~0.9.0"
+  },
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/elfsternberg/sitedarts.git"
+  },
+  "keywords": [
+    "jquery",
+    "plugin",
+    "navigation"
+  ],
+  "author": "Elf M. Sternberg <elf.sternberg@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/elfsternberg/sitedarts/issues"
+  }
+}

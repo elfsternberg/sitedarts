@@ -1,8 +1,9 @@
+/*global jQuery */
 /*!
  * jQuery siteDarts
  * Examples and documentation at: http://elfsternberg.com/projects/sitedarts/
  * Copyright (c) 2011 E. M. Sternberg
- * Version: 0.8
+ * Version: 0.9
  * Dual licensed under the MIT and GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
@@ -11,50 +12,51 @@
  
 
 ;(function($) {
-
-	$.fn.siteDarts = function(options) {
-		return this.each(function() {
-
-            options = $.extend(true, {}, $.fn.siteDarts.defaults, options)
-            names = $('a[name]');
+	$.fn.siteDarts = (options) => {
+		return this.each(() => {
+            options = $.extend(true, {}, $.fn.siteDarts.defaults, options);
+            var names = $('a[name]');
             
-            function reposition() {
+            var reposition = () => {
                 var prop = $(window).height();
                 var doch = $(document).height();
                 
-                names.each(function(dex) {
-                    var n = $(this).attr('name')
+                names.each((dex) => {
+                    var n = $(this).attr('name');
                     var d = $(this).offset().top;
-                    var a = $("li." + options.markitem + ' a[href="#' + n + '"]');
-                    var p = a.parent();
-                    p.animate({top: prop * (d / doch) - dex * 7});
+                    $("li." + options.markitem + ' a[href="#' + n + '"]')
+                        .parent()
+                        .animate({top: prop * (d / doch) - dex * 7});
                 });
-            }
+            };
             
-            function buildDarts() {
-                var self = this;
+            var buildDarts = () => {
                 if ($('#' + options.marklist)) {
-                    $('#' + options.marklist).remove()
+                    $('#' + options.marklist).remove();
                 }
                 var l = $('<ul id="' + options.marklist + '"></ul>').appendTo('body');
-                names.each(function() {
+                names.each(() => {
                     var o = $('<li class="' + options.markitem + '"><a href="#' + 
                               $(this).attr('name') + '">' + $(this).text() + '</a></li>').appendTo(l);
-
+                    
                     $('a', o).click(function(event) {
                         event.preventDefault();
-                        var target = $(event.target).attr('href').replace('#', '')
+                        var target = $(event.target).attr('href').replace('#', '');
                         var targetOffset = $('a[name="' + target  + '"]').offset().top;
-                        $('html body').animate({scrollTop: targetOffset}, 
-                                               {duration: 800, 
-                                                easing: options.easing,
-                                                complete: function() {
-                                                    location.hash = target;
-                                                }
-                                               });
+                        $('html body').animate(
+                            {
+                                scrollTop: targetOffset
+                            }, 
+                            {
+                                duration: 800, 
+                                easing: options.easing,
+                                complete: function() {
+                                    window.location.hash = target;
+                                }
+                            });
                     });
                 });
-            }
+            };
             buildDarts();
             reposition();
 		});
